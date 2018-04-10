@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="css/index.css" rel="stylesheet">
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Gtoken</title>
+    </head>
+    <body onload="init();">
+        <nav class="navbar navbar-inverse" style="margin-bottom:0;display:none;" id="navbar-menu">
+            <div class="col-xs-12" style="text-align:center;border:1px solid white">
+                <div class="col-xs-3"><a onclick="menuGo()"><img style="margin:2%;display:inline;" id="parambtn" class="img-responsive buton-menu-icon" src="img/icon/menu.png"/></a></div>
+                <div class="col-xs-9"><a onclick="loadView(this.id)" id="search"><img style="margin:2%;display:inline;margin-left:85%" id="addentitebtn" class="img-responsive buton-menu-icon" src="img/icon/search.png"/></a></div>
+            </div>
+        </nav>
+        <div class="app">
+            <div id="menu" style="display:none;">
+            </div>
+            <div id="centralApp">
+                <h1>Gtoken</h1>
+            </div>
+        </div>
+    </body>
+    <script>
+        function initMenu(){
+            menu = new menuComponent;
+            menu.template();
+        }
+        function initStorage(){
+            storage = window.localStorage;
+            stor = new storageService;
+        }
+        function initDb(){
+            db = new dbService;
+            db.addUser("blop","blop","blop@gmail.com",1);
+        
+        }
+        function initLogin(){
+            loginComponent = new loginComponent;
+            loginComponent.retrieveUser();
+        }
+        function init(){
+            
+            loadScript("src/menu/menu.js", initMenu);
+
+            loadScript("src/service/db.js", initDb);
+            loadScript("src/service/storage.js", initStorage);
+            
+            
+
+            loadScript("src/login/login.js", initLogin);
+        }
+        function nothing(){
+
+        }
+    </script>
+</html>
