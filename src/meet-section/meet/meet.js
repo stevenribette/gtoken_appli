@@ -1,4 +1,4 @@
-class meet{
+class meetComponent{
     constructor(){
         
     }

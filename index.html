@@ -54,6 +54,16 @@
             loginComponent = new loginComponent;
             loginComponent.retrieveUser();
         }
+        function initProjectSection(){
+            projectSectionComponent = new projectSectionComponent;
+            projectListComponent = new projectListComponent;
+            projectComponent = new projectComponent;
+        }
+        function initMeetSection(){
+            meetSectionComponent = new meetSectionComponent;
+            meetListComponent = new meetListComponent;
+            meetComponent = new meetComponent;
+        }
         function init(){
 
             loadScript("src/menu/menu.js", initMenu);
@@ -63,12 +73,19 @@
             
 
             setTimeout(function(){
-                loadScript("src/project/project.js", nothing);
-                loadScript("src/meet/meet.js", nothing);
-                loadScript("src/skill/skill.js", nothing);
                 loadScript("src/user/user.js", initUser);
-
+                
                 loadScript("src/login/login.js", initLogin);
+                
+                loadScript("src/project-section/project/project.js", nothing);
+                loadScript("src/project-section/project-list/project-list.js", nothing);
+                loadScript("src/project-section/project-section.js", initProjectSection);
+                
+                loadScript("src/meet-section/meet/meet.js", nothing);
+                loadScript("src/meet-section/meet-list/meet-list.js", nothing);
+                loadScript("src/meet-section/meet-section.js", initMeetSection);
+
+                loadScript("src/skill/skill.js", nothing);
             }, 100);
             
         }
