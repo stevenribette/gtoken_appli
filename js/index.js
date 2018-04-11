@@ -43,23 +43,19 @@ function getDB(fct, param) {
     xhttp.send();
 }
 function postDB(fct, param) {
-    $.ajax({
+    data = {};
+    data[fct] = JSON.stringify(param);
+    ret = $.ajax({
         type: 'post',
         url: apiUrl,
-        data: {fct : param},
-        dataType: 'text',
-        async:false,
-        success: function(result, statut){
-            
-        },
-        error : function(result, statut, erreur){
-
-        },
-        complete : function(result, statut){
-            console.log(result.responseText);
-            return result.responseText;
-        }
+        data: data,
+        dataType: 'json',
+        async: false,
+        success: function(result, statut){},
+        error : function(result, statut, erreur){},
+        complete : function(result, statut){}
     });
+    return JSON.parse(ret.responseText);
 }
 function loadView(view){
     try{

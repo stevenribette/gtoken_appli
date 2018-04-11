@@ -4,7 +4,7 @@ class loginComponent{
         this.pwd = 0;
     }
     connexionTemplate(){
-        $("#centralApp").load("src/login/connexion.html");
+        $("#centralApp").load("src/login/login.html");
     }
     checkLogin(id){
         if($('#'+id+'').val()!=""){
@@ -32,17 +32,21 @@ class loginComponent{
     connexion(){
         var us = $("#login_user").val();
         var pw = $("#login_pwd").val();
-        var userId = db.checkUser(us, pw);
+        this.connect(us,pw);
+    }
+    connect(us,pwd){
+        var userId = db.checkUser(us, pwd);
+        userId = userId['USE_ID'];
         if(userId != false){
             toggleDisplay("navbar-menu");
-            stor.setItem("user",JSON.stringify([userId,us,pw]));
-            //mediatekComponent.template();
+            stor.setItem("user",JSON.stringify([userId,us,pwd]));
+            //projectComponent.template();
         }
     }
     retrieveUser(){
         if(stor.getItem("user")){
             var userData = stor.getItem("user");
-            this.connexion(userData[1], userData[2])
+            this.connect(userData[1], userData[2])
         }else{
             this.connexionTemplate();
         }

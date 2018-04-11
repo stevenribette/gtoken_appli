@@ -40,8 +40,8 @@
         }
         function initDb(){
             db = new dbService;
-            db.addUser("blop","blop","blop@gmail.com",1);
-        
+            //us = db.getUser(1);
+            //console.log(us);
         }
         function initLogin(){
             loginComponent = new loginComponent;
@@ -54,7 +54,10 @@
             loadScript("src/service/db.js", initDb);
             loadScript("src/service/storage.js", initStorage);
             
-            
+            loadScript("src/project/project.js", nothing);
+            loadScript("src/meet/meet.js", nothing);
+            loadScript("src/user/user.js", nothing);
+            loadScript("src/skill/skill.js", nothing);
 
             loadScript("src/login/login.js", initLogin);
         }

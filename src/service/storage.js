@@ -8,9 +8,6 @@ class storageService{
         }
     }
     setItem(key,val){
-        if(typeof val == "array"){
-            val = JSON.stringify(val);
-        }
         if(storage.getItem(key)){
             storage.setItem(key,val);
             return "edit";
