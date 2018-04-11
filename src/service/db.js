@@ -130,4 +130,11 @@ class dbService{
     getProjectBySkill(id){
         return postDB("get_project_by_skill", { "prm_id" : id });
     }
+    
+    getUserType(id){
+        return postDB("get_user_type", { "prm_id" : id });
+    }
+    getUserSkill(id){
+        return postDB("get_user_skill", { "prm_id" : id });
+    }
 }

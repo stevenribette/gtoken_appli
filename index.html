@@ -47,6 +47,9 @@
             //db.addUser("blop","blop","blop@gmail.com",1);
 
         }
+        function initUser(){
+            user = new userComponent;
+        }
         function initLogin(){
             loginComponent = new loginComponent;
             loginComponent.retrieveUser();
@@ -58,12 +61,16 @@
             loadScript("src/service/db.js", initDb);
             loadScript("src/service/storage.js", initStorage);
             
-            loadScript("src/project/project.js", nothing);
-            loadScript("src/meet/meet.js", nothing);
-            loadScript("src/user/user.js", nothing);
-            loadScript("src/skill/skill.js", nothing);
 
-            loadScript("src/login/login.js", initLogin);
+            setTimeout(function(){
+                loadScript("src/project/project.js", nothing);
+                loadScript("src/meet/meet.js", nothing);
+                loadScript("src/skill/skill.js", nothing);
+                loadScript("src/user/user.js", initUser);
+
+                loadScript("src/login/login.js", initLogin);
+            }, 100);
+            
         }
         function nothing(){
 

@@ -29,3 +29,11 @@ body {
 .material-icons{
   font-size: 45px !important;
 }
+.logo_connexion {
+  height: 150px;
+  padding-top: 50px;
+}
+.img_center {
+  display: block;
+  margin: 0 auto;
+}

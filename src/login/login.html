@@ -1,17 +1,15 @@
 <img class ="logo_connexion img_center" src="img/logo_blanc.png" />
 <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col-xs-12">
-        <input id="last_name" type="email" class="validate">
-        <label for="last_name">Email</label>
+  <form class="col-xs-12">
+    <div class="row center">
+      <div class="col-xs-12">
+        <input class="form-control" placeholder="Email" id="login_user" type="email" onchange="loginComponent.checkLogin(this.id)">
       </div>
-      <div class="input-field col-xs-12">
-        <input id="password" type="password" class="validate">
-        <label for="password">Password</label>
+      <div class="col-xs-12">
+        <input class="form-control" placeholder="Mot de passe" id="login_pwd" type="password" onchange="loginComponent.checkLogin(this.id)">
       </div>
-      <div class="input-field col-xs-12 center">
-        <a class="waves-effect waves-light btn center">CONNEXION</a>
+      <div class="col-xs-12">
+        <a id="btn_login" class="btn btn-primary">CONNEXION</a>
       </div>
     </div>
   </form>

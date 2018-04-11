@@ -40,6 +40,7 @@ class loginComponent{
         if(userId != false){
             toggleDisplay("navbar-menu");
             stor.setItem("user",JSON.stringify([userId,us,pwd]));
+            user.setUser(userId);
             //projectComponent.template();
         }
     }
