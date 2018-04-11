@@ -8,9 +8,9 @@
         <script src="cordova.js"></script>
         <script src="cordova_plugins.js"></script>
 
-        <script src="bootstrap/js/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="materialize/js/jquery.js"></script>
+        <script src="materialize/js/materialize.min.js"></script>
+        <link href="materialize/css/materialize.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Gtoken</title>
     </head>
@@ -42,13 +42,15 @@
             db = new dbService;
             //us = db.getUser(1);
             //console.log(us);
+            //db.addUser("blop","blop","blop@gmail.com",1);
+
         }
         function initLogin(){
             loginComponent = new loginComponent;
             loginComponent.retrieveUser();
         }
         function init(){
-            
+
             loadScript("src/menu/menu.js", initMenu);
 
             loadScript("src/service/db.js", initDb);
