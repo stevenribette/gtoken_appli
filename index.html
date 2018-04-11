@@ -62,16 +62,21 @@
         function initMeetSection(){
             meetSectionComponent = new meetSectionComponent;
             meetListComponent = new meetListComponent;
-            meetComponent = new meetComponent;
+        }
+        function initSkillSection(){
+            skillSectionComponent = new skillSectionComponent;
+            skillListComponent = new skillListComponent;
+        }
+        function initAccount(){
+            accountComponent = new accountComponent;
+        }
+        function initUserList(type){
+            userListComponent = new userListComponent(type);
         }
         function init(){
-
-            loadScript("src/menu/menu.js", initMenu);
-
             loadScript("src/service/db.js", initDb);
             loadScript("src/service/storage.js", initStorage);
             
-
             setTimeout(function(){
                 loadScript("src/user/user.js", initUser);
                 
@@ -85,7 +90,17 @@
                 loadScript("src/meet-section/meet-list/meet-list.js", nothing);
                 loadScript("src/meet-section/meet-section.js", initMeetSection);
 
-                loadScript("src/skill/skill.js", nothing);
+                loadScript("src/skill-section/skill/skill.js", nothing);
+                loadScript("src/skill-section/skill-list/skill-list.js", nothing);
+                loadScript("src/skill-section/skill-section.js", initSkillSection);
+
+                loadScript("src/account/account.js", initAccount);
+
+                loadScript("src/user-list/user-list.js", nothing);
+
+                loadScript("src/search/search.js", nothing);
+
+                loadScript("src/menu/menu.js", initMenu);
             }, 100);
             
         }

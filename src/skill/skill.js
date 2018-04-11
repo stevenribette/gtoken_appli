@@ -1,5 +1,0 @@
-class skill{
-    constructor(){
-        
-    }
-}

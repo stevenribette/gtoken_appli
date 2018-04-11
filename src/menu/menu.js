@@ -1,6 +1,7 @@
 class menuComponent{
     template(){
         $("#menu").load("src/menu/menu.html");
+        this.checkPedago();
     }
     open() {
         document.getElementById("menu").style.width = "20%";
@@ -11,5 +12,15 @@ class menuComponent{
         document.getElementById("menu").style.width = "0";
         document.getElementById("centralApp").style.marginLeft = "0";
         document.body.style.backgroundColor = "white";
+    }
+    checkPedago(){
+        if(user.getUserType()=="Pedago"){
+            toggleDisplay("userListEtudiant");
+            toggleDisplay("userListIntervenant");
+        }
+    }
+    loadUserList(type){
+        loadView("userList");
+        initUserList();
     }
 }

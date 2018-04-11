@@ -1,6 +1,6 @@
-class searchComponent{
+class skillComponent{
     constructor(){
-
+        
     }
     template(){
         
