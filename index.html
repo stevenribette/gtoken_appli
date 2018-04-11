@@ -8,17 +8,19 @@
         <script src="cordova.js"></script>
         <script src="cordova_plugins.js"></script>
 
-        <script src="materialize/js/jquery.js"></script>
-        <script src="materialize/js/materialize.min.js"></script>
-        <link href="materialize/css/materialize.css" rel="stylesheet">
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Gtoken</title>
     </head>
     <body onload="init();">
         <nav class="navbar navbar-inverse" style="margin-bottom:0;display:none;" id="navbar-menu">
-            <div class="col-xs-12" style="text-align:center;border:1px solid white">
-                <div class="col-xs-3"><a onclick="menuGo()"><img style="margin:2%;display:inline;" id="parambtn" class="img-responsive buton-menu-icon" src="img/icon/menu.png"/></a></div>
-                <div class="col-xs-9"><a onclick="loadView(this.id)" id="search"><img style="margin:2%;display:inline;margin-left:85%" id="addentitebtn" class="img-responsive buton-menu-icon" src="img/icon/search.png"/></a></div>
+            <div class="col-xs-12">
+                <div class="col-xs-3"><i class="material-icons" id="dehaze" onclick="menuGo()">dehaze</i></div>
+                <div class="col-xs-9" style="text-align:right"><i class="material-icons" id="search" onclick="loadView(this.id)">search</i></div>
             </div>
         </nav>
         <div class="app">

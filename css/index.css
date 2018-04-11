@@ -1,11 +1,31 @@
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
 body {
-  background-color: #f5a44d
+  -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color:#f5a44d;
+  background-image:linear-gradient(top, #f5a44d 0%, #ffc282f5 51%);
+  background-image:-webkit-linear-gradient(top, #f5a44d 0%, #ffc282f5 51%);
+  background-image:-ms-linear-gradient(top, #f5a44d 0%, #ffc282f5 51%);
+  background-image:-webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0, #f5a44d),
+      color-stop(0.51, #ffc282f5)
+  );
+  background-attachment:fixed;
+  font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-size:12px;
+  height:100%;
+  margin:0px;
+  padding:0px;
+  text-transform:uppercase;
+  width:100%;
 }
-.logo_connexion {
-  height: 150px;
-  padding-top: 50px;
-}
-.img_center {
-  display: block;
-  margin: 0 auto;
+.material-icons{
+  font-size: 45px !important;
 }
