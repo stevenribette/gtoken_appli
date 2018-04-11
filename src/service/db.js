@@ -137,4 +137,17 @@ class dbService{
     getUserSkill(id){
         return postDB("get_user_skill", { "prm_id" : id });
     }
+
+    getAllProject(){
+        return postDB("get_all_project", {});
+    }
+    getAllRequest(){
+        return postDB("get_all_request", {});
+    }
+    getAllMeet(){
+        return postDB("get_all_meet", {});
+    }
+    getAllUser(){
+        return postDB("get_all_user", {});
+    }
 }

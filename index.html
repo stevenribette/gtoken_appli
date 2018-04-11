@@ -80,8 +80,6 @@
             setTimeout(function(){
                 loadScript("src/user/user.js", initUser);
                 
-                loadScript("src/login/login.js", initLogin);
-                
                 loadScript("src/project-section/project/project.js", nothing);
                 loadScript("src/project-section/project-list/project-list.js", nothing);
                 loadScript("src/project-section/project-section.js", initProjectSection);
@@ -99,6 +97,8 @@
                 loadScript("src/user-list/user-list.js", nothing);
 
                 loadScript("src/search/search.js", nothing);
+
+                loadScript("src/login/login.js", initLogin);
 
                 loadScript("src/menu/menu.js", initMenu);
             }, 100);
