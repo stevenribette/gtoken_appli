@@ -95,7 +95,8 @@ class dbService{
         return postDB("set_meet_date", { "prm_id" : id, "prm_date" : date });
     }
     getGSkill(id){
-        return postDB("get_gskill", { "prm_id" : id });
+        //return postDB("get_gskill", { "prm_id" : id });
+        return { "GSKI_ID" : id, "GSKI_LIB" : "Développement"};
     }
     getSkill(id){
         return postDB("get_skill", { "prm_id" : id });
@@ -149,5 +150,8 @@ class dbService{
     }
     getAllUser(){
         return postDB("get_all_user", {});
+    }
+    getProjectUser(id){
+        return postDB('get_project_user', { "prm_id" : id });
     }
 }

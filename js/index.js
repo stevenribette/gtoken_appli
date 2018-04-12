@@ -1,5 +1,5 @@
-//apiUrl = "gtoken.hugoleroux.ovh/gtoken/api.php";
-apiUrl = "http://localhost/gtoken/api.php";
+apiUrl = "gtoken.hugoleroux.ovh/gtoken/api.php";
+//apiUrl = "http://localhost/gtoken/api.php";
 function menuGo(){
     toggleDisplay('centralApp');
     toggleDisplay('menu');
@@ -56,6 +56,7 @@ function postDB(fct, param) {
         error : function(result, statut, erreur){},
         complete : function(result, statut){}
     });
+    //console.log(ret.responseText);
     return JSON.parse(ret.responseText);
 }
 function loadView(view){
