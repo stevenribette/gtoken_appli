@@ -42,4 +42,7 @@ class userComponent{
     getUserProject(){
         return this.project;
     }
+    removeUser(){
+        this.id = null;
+    }
 }

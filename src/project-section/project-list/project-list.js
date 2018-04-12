@@ -32,7 +32,7 @@ class projectListComponent{
         for(let e of this.projects){
             let o = {};
             let d = new projectComponent();
-            d.setProject(e);
+            d.setProjectListItem(e);
             container += "<li class='list-group-item'>"+ d.getContent() + "</li>";
             tmp.push(d);
         }

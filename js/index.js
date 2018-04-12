@@ -1,5 +1,5 @@
-apiUrl = "gtoken.hugoleroux.ovh/gtoken/api.php";
-//apiUrl = "http://localhost/gtoken/api.php";
+//apiUrl = "gtoken.hugoleroux.ovh/gtoken/api.php";
+apiUrl = "http://localhost/gtoken/api.php";
 function menuGo(){
     toggleDisplay('centralApp');
     toggleDisplay('menu');

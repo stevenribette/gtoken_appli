@@ -3,22 +3,23 @@ class projectComponent{
         this.content = "";
         this.project;
     }
-    setProject(id){
+    setProjectListItem(id){
         this.project = db.getProject(id);
-        //this.project['PRO_ADMIN'] = 0;
         this.setContent(this.project);
+    }
+    setProjectInterface(id){
+        this.template();
+        this.project = db.getProject(id);
+        this.project['PRO_ADMIN'] = 0;
+        let use_id = user.getUserId();
+        if(use_id == parseInt(this.project['PRO_ADMIN'])){
+            this.setAdminInterface(this.project);
+        }else{
+            this.setEtudiantInterface(this.project);
+        }
     }
     template(){
         $("#centralApp").load("src/project-section/project/project.html");
-        this.setData();
-    }
-    setData(){
-        let content = this.content;
-        var that = this;
-        setTimeout(function(){
-            $("#project_data").replaceWith(content);
-            that.setAdminForm(that.project);
-        }, 100);
     }
     getContent(){
         return this.content;
@@ -26,22 +27,14 @@ class projectComponent{
     setContent(project){
         let type = user.getUserType();
         if(type=="Etudiant"){
-            let id = user.getUserId();
-            if(id == parseInt(project['PRO_ADMIN'])){
-                this.setAdminContent();
-            }else{
-                this.setEtudiantContent(project);
-            }
+            this.setEtudiantListItem(project);
         }else if(type=="Intervenant"){
-            this.setIntervenantContent(project);
+            this.setIntervenantListItem(project);
         }else if(type=="Pedago"){
-            this.setPedagoContent(project);   
+            this.setPedagoListItem(project);   
         }
     }
-    setIntervenantContent(p){
-        this.content = "<div class='' onclick=''><p>" + p['PRO_NAME'] + "</p></div>";
-    }
-    setEtudiantContent(p){
+    setEtudiantInterface(p){
         let container = "";
         container += "<div class='project_data card'>";
         container += "<ul class='list-group list-group-flush'>";
@@ -69,26 +62,15 @@ class projectComponent{
             }
         }
         container += "</ul>";
-        container += "</div>";
-        this.content = container;
+        container += "</div>";        
+        setTimeout(function(){
+            $("#project_data").replaceWith(container);
+        }, 100);
     }
-    setPedagoContent(p){
-        this.content = "<div class='' onclick=''><p>" + p['PRO_NAME'] + "</p></div>";
+    setAdminInterface(p){
+        $("#project_data").replaceWith("<div id='project_info'></div><div id='project_users_info'></div>");
     }
-    setAdminContent(){
-        let container = "";
-        container += "<div class='project_form card'>";
-        container += "<ul class='list-group list-group-flush'>";
-        container += "<li class='list-group-item'>Nom :<div class='form-group'><input type='text' class='form-control' id='p_name'></div></li>";
-        container += "<li class='list-group-item'>Description :<div class='form-group'><input type='text' class='form-control' id='p_desc'></div></li>";
-        container += "<li class='list-group-item'>Jeton :<div class='form-group'><input readonly type='number' min='0' class='form-control' id='p_token'></div></li>";
-        container += "<li class='list-group-item'>Début :<div class='form-group'><input readonly type='date' class='form-control' id='p_start'></div></li>";
-        container += "<li class='list-group-item'>Fin :<div class='form-group'><input type='date' class='form-control' id='p_end'></div></li>";
-        container += "</ul>";
-        container += "</div>";
-        this.content = container;
-    }
-    setAdminForm(p){
+    setAdminData(p){
         $('#p_name').val(p['PRO_NAME']);
         $('#p_desc').val(p['PRO_DESC']);
         $('#p_token').val(p['PRO_TOKEN']);
@@ -96,6 +78,17 @@ class projectComponent{
         if(p['PRO_DATE_FIN']){
             $('#p_end').val(p['PRO_DATE_FIN']);
         }
+        $('#p_skill').val(db.getGSkill(p['GSKI_ID'])['GSKI_LIB']);
+    }
+
+    setIntervenantListItem(p){
+        this.content = "<div class='' onclick=''><p>" + p['PRO_NAME'] + "</p></div>";
+    }
+    setEtudianListItem(p){
+        this.content = "<div class='' onclick=''><p>" + p['PRO_NAME'] + "</p></div>";
+    }
+    setPedagoListItem(p){
+        this.content = "<div class='' onclick=''><p>" + p['PRO_NAME'] + "</p></div>";
     }
     setColor(state){
         if(state==true){
