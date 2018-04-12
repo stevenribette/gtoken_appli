@@ -35,7 +35,8 @@ class loginComponent{
         this.connect(us,pw);
     }
     connect(us,pwd){
-        var userId = db.checkUser(us, pwd)['USE_ID'];
+        var userId = db.checkUser(us, pwd);
+        userId = userId['USE_ID'];
         if(userId != false){
             toggleDisplay("navbar-menu");
             stor.setItem("user",JSON.stringify([userId,us,pwd]));
