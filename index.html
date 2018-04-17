@@ -20,7 +20,7 @@
         <nav class="navbar navbar-inverse" style="margin-bottom:0;display:none;" id="navbar-menu">
             <div class="col-xs-12">
                 <div class="col-xs-3"><i class="material-icons" id="dehaze" onclick="menuGo()">dehaze</i></div>
-                <div class="col-xs-9" style="text-align:right"><i class="material-icons" id="search" onclick="loadView(this.id)">search</i></div>
+                <div class="col-xs-9" style="text-align:right"><i class="material-icons" id="search" onclick="">search</i></div>
             </div>
         </nav>
         <div class="app">
@@ -92,8 +92,6 @@
                 loadScript("src/account/account.js", initAccount);
 
                 loadScript("src/user-list/user-list.js", nothing);
-
-                loadScript("src/search/search.js", nothing);
 
                 loadScript("src/login/login.js", initLogin);
 
